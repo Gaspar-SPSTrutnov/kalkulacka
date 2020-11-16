@@ -6,7 +6,7 @@ var celyZapis;
 function odpoved(cislice) {
     let komunikacniObjekt = new XMLHttpRequest();
 
-    if (cislice.lengths > 1) {
+    if (cislice === "Clear") {
         komunikacniObjekt.open("GET", "php/kalkulacka.php", true);
 
         komunikacniObjekt.onreadystatechange = function () {
