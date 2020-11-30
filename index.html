@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <script src="JQuery.js"></script>
   <script src="script.js"></script>
   
 </head>
@@ -15,7 +16,7 @@
   <br>
   <button onclick="procento()" value="%">%</button>
   <button onclick="vymaz()" value="">CE</button>
-  <button onclick="vymazvseho(), odpoved(this.value)" value="Clear">C</button>
+  <button onclick="vymazvseho()" id="clear" value="Clear">C</button>
   <button onclick="vymazposl()" value="">◄</button>
   <br>
   <button onclick="lomeno()" value="">1/x</button>
@@ -23,23 +24,23 @@
   <button onclick="odmocnina()" value="">√x</button>
   <button onclick="zapis(this)" value="/">÷</button>
   <br>
-  <button onclick="zapis(this), odpoved(this.value)" value="7">7</button>
-  <button onclick="zapis(this), odpoved(this.value)" value="8">8</button>
-  <button onclick="zapis(this), odpoved(this.value)" value="9">9</button>
+  <button onclick="zapis(this)" class="cislo" value="7">7</button>
+  <button onclick="zapis(this)" class="cislo" value="8">8</button>
+  <button onclick="zapis(this)" class="cislo" value="9">9</button>
   <button onclick="zapis(this)" value="*">×</button>
   <br>
-  <button onclick="zapis(this), odpoved(this.value)" value="4">4</button>
-  <button onclick="zapis(this), odpoved(this.value)" value="5">5</button>
-  <button onclick="zapis(this), odpoved(this.value)" value="6">6</button>
+  <button onclick="zapis(this)" class="cislo" value="4">4</button>
+  <button onclick="zapis(this)" class="cislo" value="5">5</button>
+  <button onclick="zapis(this)" class="cislo" value="6">6</button>
   <button onclick="zapis(this)" value="-">-</button>
   <br>
-  <button onclick="zapis(this), odpoved(this.value)" value="1">1</button>
-  <button onclick="zapis(this), odpoved(this.value)" value="2">2</button>
-  <button onclick="zapis(this), odpoved(this.value)" value="3">3</button>
+  <button onclick="zapis(this)" class="cislo" value="1">1</button>
+  <button onclick="zapis(this)" class="cislo" value="2">2</button>
+  <button onclick="zapis(this)" class="cislo" value="3">3</button>
   <button onclick="zapis(this)" value="+">+</button>
   <br>
   <button onclick="negace()" value="">+/-</button>
-  <button onclick="zapis(this), odpoved(this.value)" value="0">0</button>
+  <button onclick="zapis(this)" class="cislo" value="0">0</button>
   <button onclick="zapis(this)" value=".">,</button>
   <button onclick="vystup(this)" value="=">=</button>
   <br>

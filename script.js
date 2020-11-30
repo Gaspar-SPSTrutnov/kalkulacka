@@ -2,54 +2,50 @@ var vysledek = "";
 var vypisovePole;
 var celyZapis;
 
-
-function odpoved(cislice) {
+$(document).ready(function() 
+{
     let komunikacniObjekt = new XMLHttpRequest();
 
-    if (cislice === "Clear") {
-        komunikacniObjekt.open("GET", "php/kalkulacka.php", true);
+    $("#clear").click(function() 
+    {
+        $.get("php/kalkulacka.php", function(data, status) 
+        {
 
-        komunikacniObjekt.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let odpoved = JSON.parse(this.responseText);
-                document.getElementById("div").innerText = (
-                    odpoved[0].cislice + ".............." + odpoved[0].pocet + "\n" +
-                    odpoved[1].cislice + ".............." + odpoved[1].pocet + "\n" +
-                    odpoved[2].cislice + ".............." + odpoved[2].pocet + "\n" +
-                    odpoved[3].cislice + ".............." + odpoved[3].pocet + "\n" +
-                    odpoved[4].cislice + ".............." + odpoved[4].pocet + "\n" +
-                    odpoved[5].cislice + ".............." + odpoved[5].pocet + "\n" +
-                    odpoved[6].cislice + ".............." + odpoved[6].pocet + "\n" +
-                    odpoved[7].cislice + ".............." + odpoved[7].pocet + "\n" +
-                    odpoved[8].cislice + ".............." + odpoved[8].pocet + "\n" +
-                    odpoved[9].cislice + ".............." + odpoved[9].pocet)
+                let odpoved = JSON.parse(data);
+                $("#div").html(
+                odpoved[0].cislice + ".............." + odpoved[0].pocet + "<br>" +
+                odpoved[1].cislice + ".............." + odpoved[1].pocet + "<br>" +
+                odpoved[2].cislice + ".............." + odpoved[2].pocet + "<br>" +
+                odpoved[3].cislice + ".............." + odpoved[3].pocet + "<br>" +
+                odpoved[4].cislice + ".............." + odpoved[4].pocet + "<br>" +
+                odpoved[5].cislice + ".............." + odpoved[5].pocet + "<br>" +
+                odpoved[6].cislice + ".............." + odpoved[6].pocet + "<br>" +
+                odpoved[7].cislice + ".............." + odpoved[7].pocet + "<br>" +
+                odpoved[8].cislice + ".............." + odpoved[8].pocet + "<br>" +
+                odpoved[9].cislice + ".............." + odpoved[9].pocet);
+        });
+    });
 
-            }
-        }
-    }
-    else {
-        komunikacniObjekt.open("GET", "php/kalkulacka.php?cislice=" + cislice, true);
-        komunikacniObjekt.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let odpoved = JSON.parse(this.responseText);
-                document.getElementById("div").innerText = (
-                    odpoved[0].cislice + ".............." + odpoved[0].pocet + "\n" +
-                    odpoved[1].cislice + ".............." + odpoved[1].pocet + "\n" +
-                    odpoved[2].cislice + ".............." + odpoved[2].pocet + "\n" +
-                    odpoved[3].cislice + ".............." + odpoved[3].pocet + "\n" +
-                    odpoved[4].cislice + ".............." + odpoved[4].pocet + "\n" +
-                    odpoved[5].cislice + ".............." + odpoved[5].pocet + "\n" +
-                    odpoved[6].cislice + ".............." + odpoved[6].pocet + "\n" +
-                    odpoved[7].cislice + ".............." + odpoved[7].pocet + "\n" +
-                    odpoved[8].cislice + ".............." + odpoved[8].pocet + "\n" +
-                    odpoved[9].cislice + ".............." + odpoved[9].pocet)
+    $(".cislo").click(function() 
+    {
+        $.get("php/kalkulacka.php?cislice=" + this.value, function(data, status) 
+        {
+                let odpoved = JSON.parse(data);
+                $("#div").html(
+                    odpoved[0].cislice + ".............." + odpoved[0].pocet + "<br>" +
+                    odpoved[1].cislice + ".............." + odpoved[1].pocet + "<br>" +
+                    odpoved[2].cislice + ".............." + odpoved[2].pocet + "<br>" +
+                    odpoved[3].cislice + ".............." + odpoved[3].pocet + "<br>" +
+                    odpoved[4].cislice + ".............." + odpoved[4].pocet + "<br>" +
+                    odpoved[5].cislice + ".............." + odpoved[5].pocet + "<br>" +
+                    odpoved[6].cislice + ".............." + odpoved[6].pocet + "<br>" +
+                    odpoved[7].cislice + ".............." + odpoved[7].pocet + "<br>" +
+                    odpoved[8].cislice + ".............." + odpoved[8].pocet + "<br>" +
+                    odpoved[9].cislice + ".............." + odpoved[9].pocet);
+        }); 
+    });
+});
 
-            }
-        }
-    }
-
-    komunikacniObjekt.send();
-}
 
 function zapis(vstup) {
     vypisovePole = document.getElementById("vysledek");
